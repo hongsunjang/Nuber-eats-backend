@@ -42,7 +42,7 @@ import { AuthModule } from './auth/auth.module';
     }),
     GraphQLModule.forRoot({
       autoSchemaFile: true,
-      context:({req}) => ({user: req['user']}), // request user를 context와 공유한다 ->모든 graphQl resolver와
+      context:({req}) => ({user: req['user']}), // 요기를 지우면 이렇게됨!!
     }), 
     RestaurantsModule, UsersModule,
     JwtModule.forRoot({
