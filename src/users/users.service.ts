@@ -8,6 +8,7 @@ import { User } from "./entities/user.entity";
 import * as jwt from "jsonwebtoken";
 import { ConfigService } from "@nestjs/config";
 import { JwtService } from "src/jwt/jwt.service";
+import { UserProfileOutput } from "./dtos/user-profile.dto";
 
 @Injectable()
 export class UsersService{
@@ -66,7 +67,15 @@ export class UsersService{
         }
     }
 
-    async findById(id:number): Promise<User>{
-        return this.users.findOne({id});
+    async findById(id:number): Promise<UserProfileOutput>{
+        try{
+            const user = await this.users.findOneOrFail({id});
+            return{
+                ok: true,
+                user,
+            };
+        } catch(error){
+            return {ok: false, error: 'User Not Found'};
+        }
     }
 }
