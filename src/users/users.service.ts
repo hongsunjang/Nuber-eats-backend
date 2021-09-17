@@ -9,6 +9,7 @@ import * as jwt from "jsonwebtoken";
 import { ConfigService } from "@nestjs/config";
 import { JwtService } from "src/jwt/jwt.service";
 import { UserProfileOutput } from "./dtos/user-profile.dto";
+import { EditProfileInput, EditProfileOutput } from "./dtos/edit-profile.dto";
 
 @Injectable()
 export class UsersService{
@@ -77,5 +78,9 @@ export class UsersService{
         } catch(error){
             return {ok: false, error: 'User Not Found'};
         }
+    }
+
+    async editProfile(userId:number, {email, password}: EditProfileInput){
+        return this.users.update({id:userId}, {email, password})//string, number, number[] 다 보낼 수 있다.
     }
 }
