@@ -31,6 +31,7 @@
     "@types/jsonwebtoken": "^8.5.5",
     "apollo-server-express": "^3.3.0",
     "bcrypt": "^5.0.1",
+    "class-transformer": "^0.4.0",
     "class-validator": "^0.13.1",
     "cross-env": "^7.0.3",
     "graphql": "^15.5.3",
@@ -41,7 +42,8 @@
     "rimraf": "^3.0.2",
     "run": "^1.4.0",
     "rxjs": "^7.2.0",
-    "typeorm": "^0.2.37"
+    "typeorm": "^0.2.37",
+    "uuid": "^8.3.2"
   },
   "devDependencies": {
     "@nestjs/cli": "^8.0.0",
